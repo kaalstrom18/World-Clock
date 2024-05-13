@@ -1,0 +1,196 @@
+<html><head><title>SIMULATOR</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1.0">
+    <STYle>
+        h1{
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-style: italic;
+            color: darkgoldenrod;
+        }
+        h2{
+            text-align: center;
+            font-style: italic;
+            color: black;
+        }
+       
+
+             .pop-up {
+                background-color: white;
+                width: 400px;
+                height: 200px;
+                border-radius: 20px;
+                box-shadow: black;
+                position: relative;
+                z-index: 999;
+                top: 50%;
+                left: 50%;
+                display: none;
+                transform: translate(-50%,-50%);
+                box-sizing: border-box;
+                padding: 20px;
+                border: 2px solid black;
+            }
+    
+            .pop-up-content {
+                background-color: white;
+                width: 300px;
+                height: 300px;
+                border-radius: 20px;
+                position: absolute;
+                top: 50px;
+                left: 50px;
+            }
+            .buttons{
+                text-align: center;
+
+            }
+            .buttons [button]:hover{
+                padding: 10px 20px;
+                margin: 0px 10px;
+                font-size: 16px;
+                cursor: pointer;
+                background-color: green red;
+            }
+            .pop-up.active{
+            display: block;
+            }
+            .overlay{
+                display: none;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                position: fixed;
+                background-color: rgba(0,0,0,0.5);
+                z-index: auto;
+            }
+            h1{
+      color: black;
+      text-align: center;
+    }
+    .container{
+      width: 350px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #d5e7d2;
+      border: 3px solid #fafbff9f;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    
+    
+   
+    
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    
+    input[type="submit"]:hover {
+      background-color: #1c0777;
+    }
+            body{
+                background-image: url('file:///C:/Users/En-Cryptic/Javascript/background.jpg');
+                background-size: cover;
+                background-position: center;
+                background-position: no-repeat;
+            }
+    </STYle>
+    
+    <script>
+       function  PLAY(){
+       closePop_up();
+       }
+       function  QUIT(){
+
+       window.location.href="about:blank";
+       }
+       function closePop_up() {
+        document.getElementById("overlay").style.display="none";
+
+        document.getElementById("pop-up").classList.remove("active");
+       }
+       document.addEventListener("DOMContentLoaded",function () {
+        document.getElementById("overlay").style.display="block";
+        document.getElementById("pop-up").classList.add("active");
+        
+       });
+       function correctness() {
+        if (document.SignUp.NAME.value== ""){
+          alert("Please enter your Name");
+          document.SignUp.NAME.focus()
+          return false
+        }else if(document.SignUp.USERNAME.value== ""){
+          alert("Please enter your userame");
+          document.SignUp.USERNAME.focus()
+          return false
+        }else if(document.SignUp.AGE.value== ""){
+          alert("Please enter your age");
+          document.SignUp.AGE.focus()
+          return false
+        }else if(document.SignUp.EMAIL.value== ""){
+          alert("Please enter your email");
+          document.SignUp.EMAIL.focus()
+          return false
+        }else if(document.SignUp.PASSWORD.value== ""){
+          alert("Please enter your password");
+          document.SignUp.PASSWORD.focus()
+          return false
+        }else{return true}
+        
+      }
+        
+    </script>
+    
+</head>
+<body>
+    
+    <div class="overlay" id="overlay"></div>
+
+        <div class="pop-up" id="pop-up">
+        <h1>WELCOME WANDERER</h1>
+        <div class="buttons">
+             <button onclick="PLAY()">PLAY</button>
+             <button onclick="QUIT()">QUIT</button>
+
+        </div>
+        <h2>Test This SIMULATION BY Jp Studios</h2>
+
+
+        
+
+
+    </div>
+    <div class="container">
+        <h1>Sign Up</h1>
+       
+      <form name="SignUp" action="sim.html" onsubmit="return(correctness());">
+        <input type="text" name="NAME" placeholder="Name"><br>
+        <input type="text" name="USERNAME" placeholder="Username"><br>
+        <input type="text" name="EMAIL" placeholder="Email" pattern="[a-zA-Z0-9._%+-]+@gmail.com$"><br>
+        <input type="password" name="PASSWORD" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"><br>
+        <input type="checkbox" id="terms-and-conditions" required>
+        <label for="terms-and-conditions">I have read and agree to the <a href="#">Terms and Conditions</a></label>
+        <input type="submit" value="Sign Up"> <br>
+        
+      </form>
+      </div>
+  
+</body>
+</html>
