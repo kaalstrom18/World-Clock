@@ -8,26 +8,68 @@
         <style>
             .rect{
                 background-color: rgb(214, 161, 14);
-                height: 400px;
+                height: 600px;
                 width: 250px;
                 margin: 0 auto;
                 padding: 30px;
                 border-radius: 30px;
-                border: 2px solid black;;
+                border: 2px solid black;
+                position: relative;
                 
                 
             }
             .greenlight{
                 background-color: rgb(9, 175, 31);
-                width: 50px;
-                height: 50px;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                display: inline;
+                position: absolute;
+                animation: flicker 2s infinite;
+                top: 150px;
+                border: 2px solid rgb(9, 175, 31);
+                left: 100px;
+                font-size: 20px;
+                color: beige;
+                
+            }
+            .yellowlight{
+                background-color: rgb(218, 233, 8);
+                width: 120px;
+                height: 120px;
+                display: inline;
+               
+                animation: flicker 4s infinite;
                 border-radius: 50%;
                 position: absolute;
-                top: 50px;
+                top: 300px;
+                border: 2px solid rgb(218, 233, 8);
                 left: 100px;
             }
-            
-            
+            .redlight{
+                background-color: red;
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                display: inline;
+                animation: flicker 6s infinite;
+                position: absolute;
+                top: 450px;
+                border: 2px solid red;
+                left: 100px;
+            }
+            @keyframes flicker {
+                0% {
+                    opacity: 1;
+                }
+                50% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+           
             h1{
                 color: black;
                 text-align: center;
@@ -44,7 +86,27 @@
         <div class="greenlight"></div>
         <div class="yellowlight"></div>
         <div class="redlight"></div>
-        <button onclick="openPop_up()">Open Pop-up</button>
+        
     </div>
+    <script>
+        function counting_A() {
+            let count = 1;    
+        
+        function grn_NO() {
+           let parentDiv= Document.querySelector('.rect');
+           parentDiv.innerHTML=count;
+            count++;
+            if(count<=100){
+                setTimeout(clearScreen,1000);
+            }
+        }
+        function clearScreen() {
+            let parentDiv= Document.querySelector('.rect');
+           parentDiv.innerHTML="";
+            setTimeout(grn_NO,1000);
+        }
+        counting_A();
+    }    
+    </script>
 </body>
 </html>
